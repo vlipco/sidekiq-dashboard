@@ -5,7 +5,7 @@ Sidekiq.configure_client do |config|
 end
 Sidekiq.configure_server do |config|
   config.redis = { url: ENV['SIDEKIQ_REDIS'] }
-  config.on(:startup) { puts "Hello!" }
+  config.on(:startup) { puts "Connecting to #{ENV['SIDEKIQ_REDIS']}" }
   config.on(:quiet) { puts "Quiet down!" }
   config.on(:shutdown) { puts "Goodbye!" }
 end
